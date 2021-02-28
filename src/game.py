@@ -1,4 +1,5 @@
-from random import randint
+import random
+import time
 
 
 def print_board(board):
@@ -36,9 +37,9 @@ def player_make_move(board, player):
 
 
 def computer_make_move(board, player):
-    position = randint(0, 8)
+    position = random.randint(0, 8)
     while not check_valid_move(board, position):
-        position = randint(0, 8)
+        position = random.randint(0, 8)
     make_move(board, player, position)
     print_board(board)
     print("Computer made a move at position " + str(position + 1))
@@ -169,7 +170,7 @@ def play():
     game_over = False
     play_again = True
     board = [" ", " ", " ", " ", " ", " ", " ", " ", " "]
-    player = "x" if randint(0, 1) == 1 else "o"
+    player = "x" if random.randint(0, 1) == 1 else "o"
     computer = "o" if player == "x" else "x"
     score = {"player": 0, "computer": 0}
 
@@ -198,6 +199,7 @@ def play():
         if result.upper() == "N":
             play_again = False
             print("It was great playing with you!")
+            time.sleep(0.25)
 
 
 if __name__ == '__main__':
